@@ -86,7 +86,7 @@ public class SnowflakeZookeeperHolder {
                     String newNode = createNode(curator);
                     zk_AddressNode = newNode;
                     String[] nodeKey = newNode.split("-");
-                    workerID = Integer.parseInt(nodeKey[1]);
+                    workerID = Integer.parseInt(nodeKey[nodeKey.length - 1]);
                     doService(curator);
                     updateLocalWorkerID(workerID);
                     LOGGER.info("[New NODE]can not find node on forever node that endpoint ip-{} port-{} workid-{},create own node on forever node and start SUCCESS ", ip, port, workerID);
